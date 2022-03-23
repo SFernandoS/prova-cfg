@@ -6,35 +6,46 @@ Associatividade:
     esquerda: + - * /
     direita: ^
 
-Precedência (da menor para a maior): (+ -), (* /), (^)
+Precedência (da menor para a maior): 
+    + -
+    * /
+    ^
 """
-from lark import Lark, Transformer
+from lark import Lark, Transformer, v_args
 
 
 grammar = Lark(
     r"""
-?start : expr
+start  : expr
 
-?expr  : ...
-       | ...
+?expr  : expr "+" term  -> add
+       | term "*" term  -> mul
+       | term
 
-?term  : ...
-       | ...
+?term  : term "-" term  -> sub
+       | term "/" term  -> div
+       | pow
 
-?unary : ...
-       | ...
+?pow   : pow "^" pow    -> pow
+       | atom
 
 ?atom  : NUMBER
+       | "(" expr ")"
 
 NUMBER : /\d+(\.\d+)?/
+%ignore /\s+/
 """
 )
 
 
+@v_args(inline=True)
 class Calc(Transformer):
     from operator import add, sub, mul, truediv as div, pow
 
-    INT = int
+    NUMBER = float
+
+    def start(self, expr):
+        return expr
 
 
 def eval_calc(src):
@@ -49,6 +60,6 @@ if __name__ == "__main__":
         for op2 in ops:
             src = f"1.0 {op1} 2.0 {op2} 3.0"
             calc = eval_calc(src)
-            py = eval(src)
-            if calc != py:
+            py = eval(src.replace("^", "**"))
+            if abs(calc - py) > 1e-9:
                 print(f"{src} => {calc} (esperava {py})")
