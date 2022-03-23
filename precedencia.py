@@ -10,6 +10,10 @@ Precedência (da menor para a maior):
     + -
     * /
     ^
+
+Pontuação:
+    * cfg-op: 5pts
+    * cfg-reduce: 2pts
 """
 from lark import Lark, Transformer, v_args
 

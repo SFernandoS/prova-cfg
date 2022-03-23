@@ -32,7 +32,8 @@ def loader(floader):
         filename = name + ".py"
         src = floader(filename, skip)
         code = compile(src, filename, "exec")
-        exec(code, ns := {}, ns)
+        ns = {}
+        exec(code, ns, ns)
         return SimpleNamespace(**ns)
 
     return loader

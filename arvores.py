@@ -4,6 +4,10 @@ sintáticas dos exemplos abaixo obedeçam à estrutura desejada.
 
 Você pode criar novas regras, reescrever as regras apresentadas, incluir operadores 
 como ?, _, etc. 
+
+Pontuação:
+    * cfg-ast: 4pts
+    * cfg-sexpr: 4pts
 """
 from lark import Lark, Transformer, Tree, v_args
 

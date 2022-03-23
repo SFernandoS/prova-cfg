@@ -15,6 +15,7 @@ Você pode criar novos símbolos não-terminais, caso ache necessário ou desej�
 **Python**
 
 Semelhante ao caso anterior, mas aceita uma vírgula opcional no final de uma lista.]
+
 ex.: [E, E, E,]
 
 ```lark
@@ -47,3 +48,7 @@ lst : ...
     
 %ignore /\s+/
 ```
+
+## Pontuação
+
+cfg-listas: 2pts por item resolvido corretamente

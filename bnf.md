@@ -4,6 +4,7 @@ Considere as gramáticas EBNF abaixo escritas no formato EBNF. Remova todos os o
 
 Considere que os símbolos não-terminais são escritos em letras minúsculas e os terminais em letras maiúsculas. Você pode criar novas regras, se necessário. Utilize ε para representar as produções vazias.
 
+## Gramáticas
 
 **G1**
 ```
@@ -30,3 +31,9 @@ s : "[" [A ("," A)* ] "]"
 ```
 s : "if" A "then" A [ "else" ( s | A ) ]
 ```
+
+## Pontuação
+
+* cfg-bnf: 1pt por item resolvido corretamente
+* cfg-ebnf: 1pt se acertar G2 e G3 e 1pt se acertar G4
+* cfg-list: 1pt se acertar G4

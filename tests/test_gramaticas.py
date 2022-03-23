@@ -25,11 +25,12 @@ class TestSubmission:
         return [f(m.group(1)) for m in part1.finditer(src)]
 
     def get_descriptions(self, src):
-        return {
-            m.group(1): descr
-            for m in part2.finditer(src)
-            if (descr := m.group(2).strip()) != "..."
-        }
+        res = {}
+        for m in part2.finditer(src):
+            descr = m.group(2).strip()
+            if descr != "...":
+                res[m.group(1)] = descr
+        return res
 
     def check_part_1(self, ans, src):
         expect = self.get_examples(ans)

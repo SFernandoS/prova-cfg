@@ -1,4 +1,4 @@
-# Gramáticas EBNF
+# Gramáticas BNF
 
 
 Considere as gramáticas no formato EBNF abaixo onde símbolos em letras minúsculas são considerados não-terminais e os símbolos em letra maiúsculas são considerados terminais e o símbolo inicial é representado pela letra "s". Produções vazias são representadas por ε.
@@ -50,7 +50,7 @@ r : s s
   | ε
 ```
 
-**Parte I (competência: cfg 4 pts)**
+## Parte I
 
 Classifique as sequências de símbolos abaixo de acordo com qual gramática elas pertencem. Uma sequência pode pertencer a mais de uma gramática. Deixamos a letra (a) resolvida no formato esperado para cada resposta.
 
@@ -65,7 +65,7 @@ e) BABA: ε
 f) AABB: ε
 h) AABAB: ε
 
-**Parte II (medalha cfg, se acertar todas)**
+## Parte II (medalha cfg, se acertar todas)
 
 Resuma todas as gramáticas acima com uma descrição informal que diga intuitivamente o que cada linguagem representa. Você pode atribuir significados específicos aos símbolos terminais A e B, se necessário.
 
@@ -75,3 +75,8 @@ G3: ...
 G4: ...
 G5: ...
 G6: ...
+
+## Pontuação
+
+* cfg-bfn: 0.5pt por string
+* cfg-classicas: 1pt para descrição correta de G1, G2 e G4
