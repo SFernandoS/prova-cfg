@@ -10,10 +10,6 @@ Precedência (da menor para a maior):
     + -
     * /
     ^
-
-Pontuação:
-    * cfg-op: 5pts
-    * cfg-reduce: 2pts
 """
 from lark import Lark, Transformer, v_args
 
@@ -23,20 +19,23 @@ grammar = Lark(
 start  : expr
 
 ?expr  : expr "+" term  -> add
-       | term "*" term  -> mul
+       | expr "-" term  -> sub
        | term
 
-?term  : term "-" term  -> sub
-       | term "/" term  -> div
+?term  : term "*" pow  -> mul
+       | term "/" pow  -> div
        | pow
 
-?pow   : pow "^" pow    -> pow
+?pow   : atom "^" pow    -> pow
        | atom
 
 ?atom  : NUMBER
        | "(" expr ")"
 
 NUMBER : /\d+(\.\d+)?/
+
+
+
 %ignore /\s+/
 """
 )

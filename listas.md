@@ -15,11 +15,10 @@ Você pode criar novos símbolos não-terminais, caso ache necessário ou desej�
 **Python**
 
 Semelhante ao caso anterior, mas aceita uma vírgula opcional no final de uma lista.]
-
 ex.: [E, E, E,]
 
 ```lark
-lst : ...
+lst : "[" (E ","?)* "]"
     
 %ignore /\s+/
 ```
@@ -32,7 +31,7 @@ ex.: [E,,,, E, E,,]
 
 
 ```lark
-lst : ... 
+lst : "[" (E ","*)* "]"
     
 %ignore /\s+/
 ```
@@ -44,11 +43,7 @@ As listas do LISP usam parênteses no lugar de colchetes e os elementos são sep
 ex.: (E E E)
 
 ```lark
-lst : ... 
-    
+lst :  "(" E* ")"
+
 %ignore /\s+/
 ```
-
-## Pontuação
-
-cfg-listas: 2pts por item resolvido corretamente

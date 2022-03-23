@@ -26,12 +26,6 @@ Abaixo seguem alguns exemplos de strings aleatórias válidas geradas por esta g
     fizz(fizz)
     fizz(fizz, buzz)
     fizz(fizz(fizz, buzz(10, 42, 1, 100, buzz(1, buzz))))
-
-Pontuação:
-    * cfg-bnf: 1pt
-    * cfg-ebnf: 1pt
-    * cfg-cst: 1pt
-    * cfg-classicas: 1pt
 """
 import random
 
