@@ -25,13 +25,16 @@ s :: A s
 
 **G4**
 ```
-s :: "[" A | r "]"
-r :: "," A r | ε 
+s :: "[" r "]"
+r :: A t
+  | ε
+t :: ("," A) t
+  | ε 
 ```
 
 **G5**
 ```
-s :: "if" A "then" A | r
-r :: "else" | x
-x :: s | A
+s :: "if" A "then" A r
+r :: "else" ( s | A )
+  | ε
 ```
